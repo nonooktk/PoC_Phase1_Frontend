@@ -5,11 +5,13 @@ Next.js 14 (App Router) + TypeScript + Tailwind CSS。
 
 Azure Static Web Apps へのデプロイ用に、モノレポ
 ([PoC_Phase1](https://github.com/nonooktk/PoC_Phase1)) から `frontend/` だけを
-独立リポジトリとして切り出したもの。
+独立リポジトリとして切り出したもの。本リポジトリ内では `frontend/` 配下に
+コードを配置し、リリース手順書 §1 の「アプリの場所: `/frontend`」と整合させている。
 
 ## ローカル起動
 
 ```bash
+cd frontend
 npm install
 cp .env.local.example .env.local   # NEXT_PUBLIC_API_URL を埋める
 npm run dev                        # → http://localhost:3000
@@ -22,7 +24,7 @@ npm run dev                        # → http://localhost:3000
 
 リリース手順書 §1「UI デプロイ (Next.js → Azure SWA)」に準拠。要点:
 
-- **アプリの場所**: `/` (本リポジトリのルート)
+- **アプリの場所**: `/frontend`
 - **API の場所**: 空欄 (バックエンドは別 Function App)
 - **出力の場所**: `out`
 - **ビルドプリセット**: Next.js
