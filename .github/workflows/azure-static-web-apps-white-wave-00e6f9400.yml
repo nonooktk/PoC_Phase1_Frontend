@@ -21,6 +21,10 @@ jobs:
           lfs: false
       - name: Build And Deploy
         id: builddeploy
+        # NEXT_PUBLIC_* はビルド時にバンドルへ埋め込まれるため、ここで env を指定する
+        # (SWA のランタイム環境変数では効かない)
+        env:
+          NEXT_PUBLIC_API_URL: https://tech0-search-api-techshift.azurewebsites.net
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_WAVE_00E6F9400 }}
